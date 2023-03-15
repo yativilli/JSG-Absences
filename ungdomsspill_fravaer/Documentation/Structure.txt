@@ -1,0 +1,147 @@
+The Site contains Elements in HTML, Javascript/Jquery, PHP and a SQL-Database:
+
+The Basic Premise:
+    - Currently, the list with who is present or absent during a rehearsal, is maintained by hand; This is outdated, and it now should be done online:
+      The Site needs a form, in which you can record, who was present and who not.
+    - For easy access at the end of the year, if someone is absent, it is marked in the database as "1", whereas if someone is present, it'll be markes as "0";
+      At the end of the year, the values simply need to be add up, which this system makes very easy, it also saves DB-Space.
+
+
+------------------------------------------------
+
+
+HTML:
+
+- index.HTML
+    This Site is shown when accessing the Website; It has a Login-Form with the fields "Username" and "Password", as well as a submit-button. 
+    If this Button is pressed, a POST-Request will be send to *login.php*, where a script will check if your login is valid. 
+    If successfully logged in, the User will be forwared to *index1.php*, the "real site", if not, the User will remain on this form: No links are present, no navbar either
+
+- index1.HTML
+    This Site is the "Home"-page of the site; The User is checked, if he is logged in, other wise will be reset to *index.html* - HAPPENS IN EVERY HTML-Page.
+    The Site contains a small text, along the lines of "Welcome...". Otherwise, this page is the foundation of the entire site: Every HTML-Page is fundamentally like this:
+    The Head with the Links to stylesheet and others, a Navbar for Navigation (Hamburger for Phones) and so forth.
+
+- nyebrukere.HTML
+    This Page is used for Adding new Users onto the forms.
+
+    This page is like *index1.html*, but contains another script: *getMembers.js*. 
+    This script is used for accessing the Members from the Database and filling them in a table on the top of the page (from *faamedlemer.php*). 
+    Below this automatically filled table is a form located, with which you can add more members. This contains the fields "Name" and "Instrument", as well as a Submit Button.
+    This form passes the data on to the PHP-script *skapmedlem.php*, which saves the new User into the DB.
+
+- registrere.HTML
+    This Page is used for saving who was present or absent during the rehearsal.
+
+    This Page is like the *index1.html* page, but with another script: *getMembersForAbsence.js*. This script gets its data from the *faamedlemer.php*, where it gets the Members.
+    These members are added into a table within a form, with one <select>-Element for each row/Member. There are two options: "Absent" (val=1) and "Present" (val=0).
+    These values are submitted to *submitToDB.php*, where they will be saved into the DB.
+
+- utgave.HTML
+    This Page is used for displaying the Absences or Presences of Today, if any have been submitted.
+
+    This is achieved through the script *getAbsences.js*, which displays the Data in a Table.
+
+- utgaveTidsperiode.HTML
+    This Page is used for choosing a Timeperiod; All entries in the timespan will be requested from the DB.
+
+    This is achieved through 2 inputs: A "Beginn"-Date and an "End"-Date; When submitted, it calls the script *faadaa.php*,
+    with which you will be forwarded to the page *FileOutput.html*;
+
+- FileOutput.HTML
+    This page is used for displaying the Files with the Data from within the requested Timeperiod.
+    It contains two files: 
+        - One contains every single entry, sorted by name
+        - The other contains an entry for every name, with Counts on how many times a rehearsal was missed. 
+
+    This is achieved through Links pointing to two ".csv"-Files; They are updated each time when the page from above is submitted.
+
+
+------------------------------------------------
+
+
+PHP:
+
+- login.PHP
+    This script is used to check the login of *index.html* and react accordingly.
+
+    Connect to DB-Table "login" and check for how many matching logins exist: 
+    If there is one, set cookie to "Logged in", if not, set cookie to "Not Logged In";
+    
+    If "Logged in", forward to real Website(*index1.html*), if "Not Logged in", revert back to the *index.html*.
+
+- skapmedlemer.PHP
+    This Script is used to create new Members with *nyebrukere.php*.
+
+    Connect to DB-Table "members" and insert the new member with the given Values into the DB. Forward back to the *nyebrukere.html*.
+
+- faamedlemer.PHP
+    This Script is used to get the Members from the DB.
+
+    Connect to the DB, Select everything from the table, display it in JSON for Javascript and save in file for later use by PHP.
+
+- submitToDB.PHP
+    This is used to insert the absences and presences into the DB.
+
+    Connect to DB, check if the Current Date exists already, if not, create a new.
+    Get the Id from the Current Date and get the Members from the file mentioned above.
+
+    Go through data and insert it row for row into the DB. Forward to *utgave.html*
+
+- faadata.PHP
+    This is used to get the Data (Absences and Presences) out of the DB.
+
+    Connect to DB, Get Every Entry in the specified timeframe (sorted by name) and save them in *All_Absences_SortByName.csv*.
+    Get Every Entry and add the absences together (Grouped by Name); Save them in *Absences_AddedUp_GroupedByName.csv*.
+
+- faadatafraidag.PHP
+    This is used to get the Data from today out of the DB.
+
+    Connect to DB, Get all Entries from today and display them in JSON-Format.
+
+
+------------------------------------------------
+
+
+Javascript:
+
+- isloggedin.js
+    This is used for checking, if you logged in correctly.
+
+    Read Cookie and if the right value is set, forward to *index1.html*, otherwise to *index.html*
+
+- getMembers.js
+    This is used for getting the Members from the PHP *faamedlemer.php* and append them to a table
+
+- getMembersForAbsence.js
+This is used for getting the Members from the PHP *faamedlemer.php* and append them to a table, with one row as <select>
+
+- getAbsences.js
+    This is used for getting the Data(Absences) from today and appending them to a table.
+
+------------------------------------------------
+
+
+SQL:
+
+- DB: jsg_fravaer
+    - Table: abwesenheiten
+        - PK: id (int)
+        - Datum (datum)
+
+    - Table: abwesenheiten_daten
+        - PK: id (int)
+        - FK: Abwesenheiten_id (int) ==> linked with abwesenheiten->id
+        - Name (text)
+        - Status (text)
+
+    - Table: login
+        - PK: id (int)
+        - login (text)
+        - password (text)
+        - active (int)
+
+    - Table: mitglieder
+        - PK: Mitgleider_id (int)
+        - Name (text)
+        - Instrument (text)

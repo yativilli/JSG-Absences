@@ -1,0 +1,19 @@
+/* Colorchange of selected HTML-Page */
+.active{
+    color: grey;
+}
+
+/* Spacing */
+.p-5{
+    padding: 15%;
+}
+ 
+.w-5{
+    width: 20%;
+    align-items: center;
+    text-align: center;
+}
+
+.center{
+    margin-top: 20rem;
+}

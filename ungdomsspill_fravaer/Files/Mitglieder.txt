@@ -1,0 +1,1 @@
+[{"id":"1","name":"Yannick Wernle","instrument":"Saxophon"},{"id":"2","name":"Dominic Erdin","instrument":"Euphonium"},{"id":"3","name":"Yannick Wernle","instrument":"Klarinette"},{"id":"4","name":"Larissa Wernle","instrument":"Tenor-Saxophon"},{"id":"5","name":"Alessia Wernle","instrument":"Klarinette"},{"id":"6","name":"","instrument":""}]
