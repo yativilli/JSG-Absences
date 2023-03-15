@@ -1,3 +1,0 @@
-- Create comprehensible documentation
-- Add Login (only usable by admins)
-- Publish
