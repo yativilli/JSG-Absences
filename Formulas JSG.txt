@@ -1,0 +1,90 @@
+-------------------------------------
+Average Membercount per Rehearsal
+------------------------------------
+
+var rehearsal = [3, 4, 5];
+
+var rehearsalMembersTotal = 0;
+for(var i = 0; i <= rehearsal.length - 1; i++){
+    rehearsalMembersTotal += rehearsal[i];
+}
+console.log("Average Members per Rehearsal: " + rehearsalMembersTotal/rehearsal.length);
+
+--------------------------------------
+Average Presency Rate
+------------------------------
+var presencyRates = [0.9, 0.5, 0.75];
+
+var presencyRateTotal = 0;
+for(var i = 0; i <= presencyRates.length - 1; i++){
+    presencyRateTotal += presencyRates[i];
+}
+console.log("Average Presency Rate: " + presencyRateTotal/presencyRates.length);
+
+-------------------------------------
+Median Presency Rate
+-------------------------
+var presencyRates = [0.75, 0.75, 0.75, 0];
+
+const median = arr => {
+  const mid = Math.floor(arr.length / 2),
+    nums = [...arr].sort((a, b) => a - b);
+  return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+};
+
+console.log("Median Presency Rate: " + median(presencyRates));
+
+
+--------------------------------------
+Least Members
+------------------------------
+var rehearsal = [3, 4, 5, 20, 30, 23, 4, 2];
+
+rehearsal.sort(function(a, b){return b - a});
+rehearsal.reverse();
+console.log("Least: " + rehearsal[0]);
+
+--------------------------------------
+Most members
+------------------------------
+var rehearsal = [3, 4, 5, 20, 30, 23, 4, 2];
+
+rehearsal.sort(function(a, b){return b - a});
+console.log("Most: " + rehearsal[0]);
+
+
+--------------------------------------
+Top ten
+------------------------------
+var presencyRates = [0.9, 0.5, 0.75, 0.9, 0.8, 0, 0, 0, 0.3, 0.6, 0.7, 0.8, 0.9, 0.99];
+
+presencyRates.sort(function(a, b){return b - a});
+
+for(var i = 0; i <= 10; i++){
+    console.log(i + ". => " + presencyRates[i]);
+}
+
+
+--------------------------------------
+Leaderbord
+------------------------------
+var presencyRates = [0.9, 0.5, 0.75, 0.9, 0.8, 0, 0, 0, 0.3, 0.6, 0.7, 0.8, 0.9, 0.99];
+
+presencyRates.sort(function(a, b){return b - a});
+
+for(var i = 0; i <= presencyRates.length -1; i++){
+    console.log(i + ". => " + presencyRates[i]);
+}
+
+
+----------------------------------------
+Total per Members
+-------------------
+var x = [22, 23, 22, 23, 24, 23, 21, 26, 25, 25, 26 ,26 , 27, 27 ,27, 0];
+
+var trace = {
+    x: x,
+    type: 'histogram',
+  };
+var data = [trace];
+Plotly.newPlot('myDiv', data);
