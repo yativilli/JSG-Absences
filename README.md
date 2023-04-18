@@ -67,10 +67,15 @@ Preferably, a Document with all Versions ever and descriptions each needs to be 
 The Versions Table inside the documentation here contains every version (minor, patch) of the current major release and the major releases from before: **BUT** every version must be added to the versions document, with a description of every single change.
 
 f.ex:
+
 v.0.0.0 - Initial Development
+
 v.1.0.0 - Release 1
+
 v.1.0.1 - Bugfix Login.
+
 v.1.0.1a - Spelling Error
+
 
 ### Branches
 I don't know that much about this part of programming, so I'll just use, what I learned from some googling:
@@ -101,7 +106,7 @@ Here are things that could, should, may or need to be changed:
 -	Revise Documentations ==> Diagram of Program
 -	~~Change Wording for Absence (Done)~~
 ### Database
--	New field in Login (isAdmin) for admin functions
+-	New field in Login (isAdmin) for admin functions?
 -	Make “Name” field in «abwesenheiten_daten» a foreign key referencing “mitglieder” table 
 -	~~Change Login in PHP-files (Done)~~
 -	~~submitToDB.php => get Members via SQL and not file. (Done)~~
