@@ -44,7 +44,8 @@ Here are some things that are quite important for the overall Structure, includi
 
 ### Versions
 Since this is my first program, I searched the internet and came up with the following sceme:
-vX.Y.Z_a
+
+`v. X.Y.Z_a`
 
 X:
 - X is used for major releases, that change something fundamental, that might not be backwards compatible.
