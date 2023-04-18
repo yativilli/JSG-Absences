@@ -64,18 +64,17 @@ The same applies to the documentation indicator – But it resets after each pat
 Preferably, a Document with all Versions ever and descriptions each needs to be created for better oversight over all changes.
 
 #### In Use
-The Versions Table inside the documentation here contains every version (minor, patch) of the current major release and the major releases from before: **BUT** every version must be added to the versions document, with a description of every single change.
+The Versions Table inside the documentation here contains every version (minor, patch) of the current major release and the major releases from before: **BUT** every version must be added to the versions document, with a details of the change.
 
 f.ex:
 
-v.0.0.0 - Initial Development
+`v.0.0.0 - Initial Development`
 
-v.1.0.0 - Release 1
+`v.1.0.0 - Release 1`
 
-v.1.0.1 - Bugfix Login.
+`v.1.0.1 - Bugfix Login`
 
-v.1.0.1a - Spelling Error
-
+`v.1.0.1a - Spelling Error`
 
 ### Branches
 I don't know that much about this part of programming, so I'll just use, what I learned from some googling:
@@ -137,12 +136,11 @@ Here are things that could, should, may or need to be changed:
 
 | Date       | Version       | Author                  | Description       |
 | ---------- | ------------- | ----------------------- | ----------------- |
-| 07.03.2023 | v. 0.0.0 | Wernle Yannick | Initial Development |
-| 13.04.2023 | v. 0.0.0a | Wernle Yannick | Small Modifications, such as Versions|
-| 18.04.2023 | v. 0.0.0b | Wernle Yannick | Rewrote Documentation in README and scrapped old version |
-| 18.04.2023 | v. 0.0.1 | Wernle Yannick | Fixed Language, Code Smells, Structure |
-| 18.04.2023 | v. 0.0.1 | Wernle Yannick | Removed "Mitglieder.txt" from being used in Code & Added Version Document |
-| 20.04.2023 | v. 0.1.0 | Wernle Yannick | Added "Delete Member", "Update Member", made "New Member" seperate, added "New Login", "Edit Login", "Delete Login" |
+| 07.03.2023 | `v. 0.0.0` | Wernle Yannick | Initial Development |
+| 13.04.2023 | `v. 0.0.0a` | Wernle Yannick | Small Modifications, such as Versions|
+| 18.04.2023 | `v. 0.0.0b` | Wernle Yannick | Rewrote Documentation in README and scrapped old version |
+| 18.04.2023 | `v. 0.0.1` | Wernle Yannick | Fixed Language, Code Smells, Structure, Removed "Mitglieder.txt" from being used in Code & Added Version Document |
+| 20.04.2023 | `v. 0.1.0` | Wernle Yannick | Added "Delete Member", "Update Member", made "New Member" seperate, added "New Login", "Edit Login", "Delete Login" |
 
 ## Contact & Credits
 
