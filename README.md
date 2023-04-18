@@ -105,6 +105,7 @@ Here are things that could, should, may or need to be changed:
 -	**Provider**
 -	Revise Documentations ==> Diagram of Program
 -	~~Change Wording for Absence (Done)~~
+- Add Date into Registring
 ### Database
 -	New field in Login (isAdmin) for admin functions?
 -	Make “Name” field in «abwesenheiten_daten» a foreign key referencing “mitglieder” table 
@@ -129,6 +130,17 @@ Here are things that could, should, may or need to be changed:
 -	Provider
 -	Monolingual
 
+### Statistics
+
+For time selected a query is performed:
+- Average Members per Rehearsal
+- Average of Individual Users Presency rate
+- Rehearsal with least members
+- Rehearsal with most members
+- Histogramm on total rehearsals present
+- Top Ten 
+- Leaderbord
+https://plotly.com/javascript/histograms/ 
 
 ## Versions
 
