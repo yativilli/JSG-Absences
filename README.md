@@ -115,22 +115,19 @@ Here are things that could, should, may or need to be changed:
 -	Delete User (admin)
 -	Add User (admin)
 -	Edit Absence
--	Optimize View of Absences
-  - Table on website itself?
+-	Optimize View of Absences - Table on website itself?
 ### Behind the Scenes
--	Editing History for verification 
-  - Date, Login, what type (“2023-03-07; Wernle_y; Created new User”)
+-	Editing History for verification - Date, Login, what type (“2023-03-07; Wernle_y; Created new User”)
 -	Improve Login
 -	Improve Security
 -	Backup for the data
 -	~~“Currently being changed” – Staging thingy (Done)~~
 -	Document documenting all Versions
--	
 ### ToDo before next major release
 -	Revise Documentation
 -	Document all Versions in Separate Document
 -	Provider
--	Monolingual (Partially)
+-	Monolingual
 
 
 ## Versions
